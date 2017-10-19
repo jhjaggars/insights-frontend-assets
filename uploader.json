@@ -199,6 +199,10 @@
             "pattern": []
         },
         {
+            "command": "/sbin/ip6tables-save",
+            "pattern": []
+        },
+        {
             "command": "/sbin/ip addr",
             "pattern": []
         },
@@ -371,6 +375,11 @@
             "pattern": []
         },
         {
+            "command": "/bin/echo",
+            "pattern": [],
+            "pre_command": "java_command_package"
+        },
+        {
             "command": "/bin/ps aux",
             "pattern": [
                 "/sapmnt/",
@@ -387,8 +396,10 @@
                 "COMMAND",
                 "STAP",
                 "STAP/8.2",
+                "catalina.base",
                 "ceph-osd",
                 "chronyd",
+                "java",
                 "keystone-all",
                 "ntpd",
                 "phc2sys",
@@ -623,7 +634,7 @@
             "pattern": []
         },
         {
-            "file": "/etc/systemd/journald\\.conf\\.d/()*.+\\.conf",
+            "file": "/etc/systemd/journald.conf.d/()*.+\\.conf",
             "pattern": []
         },
         {
@@ -715,6 +726,12 @@
             "pattern": []
         },
         {
+            "file": "/var/log/ipaupgrade.log",
+            "pattern": [
+                "wait_for_open_ports: localhost"
+            ]
+        },
+        {
             "file": "/etc/sysconfig/iptables",
             "pattern": []
         },
@@ -731,7 +748,11 @@
             "pattern": []
         },
         {
+<<<<<<< Updated upstream
             "file": "/etc/krb5\\.conf\\.d/()*.*\\.conf",
+=======
+            "file": "/etc/krb5.conf.d/()*.*\\.conf",
+>>>>>>> Stashed changes
             "pattern": []
         },
         {
@@ -743,7 +764,11 @@
             "pattern": []
         },
         {
+<<<<<<< Updated upstream
             "file": "/etc/security/limits\\.d/()*.*\\.conf",
+=======
+            "file": "/etc/security/limits.d/()*.*\\.conf",
+>>>>>>> Stashed changes
             "pattern": []
         },
         {
@@ -1146,7 +1171,7 @@
             "pattern": []
         },
         {
-            "file": "/usr/lib/systemd/journald\\.conf\\.d/()*.+\\.conf",
+            "file": "/usr/lib/systemd/journald.conf.d/()*.+\\.conf",
             "pattern": []
         },
         {
@@ -1186,7 +1211,11 @@
             ]
         },
         {
+<<<<<<< Updated upstream
             "file": "/etc/virt-who\\.d/()*.*\\.conf",
+=======
+            "file": "/etc/virt-who.d/()*.*\\.conf",
+>>>>>>> Stashed changes
             "pattern": [
                 "[",
                 "configs",
@@ -2167,21 +2196,21 @@
             "docker_container": [
                 {
                     "archive_file_name": "/insights_data/container/rootfs/{EXPANDED_FILE_NAME}",
-                    "file": "{CONTAINER_MOUNT_POINT}/etc/systemd/journald\\.conf\\.d/()*.+\\.conf",
+                    "file": "{CONTAINER_MOUNT_POINT}/etc/systemd/journald.conf.d/()*.+\\.conf",
                     "pattern": []
                 }
             ],
             "docker_image": [
                 {
                     "archive_file_name": "/insights_data/image/rootfs/{EXPANDED_FILE_NAME}",
-                    "file": "{CONTAINER_MOUNT_POINT}/etc/systemd/journald\\.conf\\.d/()*.+\\.conf",
+                    "file": "{CONTAINER_MOUNT_POINT}/etc/systemd/journald.conf.d/()*.+\\.conf",
                     "pattern": []
                 }
             ],
             "host": [
                 {
                     "archive_file_name": "/{EXPANDED_FILE_NAME}",
-                    "file": "/etc/systemd/journald\\.conf\\.d/()*.+\\.conf",
+                    "file": "/etc/systemd/journald.conf.d/()*.+\\.conf",
                     "pattern": []
                 }
             ]
@@ -2788,6 +2817,15 @@
                 }
             ]
         },
+        "ip6tables": {
+            "host": [
+                {
+                    "archive_file_name": "/insights_commands/ip6tables-save",
+                    "command": "/sbin/ip6tables-save",
+                    "pattern": []
+                }
+            ]
+        },
         "ip_addr": {
             "host": [
                 {
@@ -2803,6 +2841,35 @@
                     "archive_file_name": "/insights_commands/ip_route_show_table_all",
                     "command": "/sbin/ip route show table all",
                     "pattern": []
+                }
+            ]
+        },
+        "ipaupgrade_log": {
+            "docker_container": [
+                {
+                    "archive_file_name": "/insights_data/container/rootfs/var/log/ipaupgrade.log",
+                    "file": "{CONTAINER_MOUNT_POINT}/var/log/ipaupgrade.log",
+                    "pattern": [
+                        "wait_for_open_ports: localhost"
+                    ]
+                }
+            ],
+            "docker_image": [
+                {
+                    "archive_file_name": "/insights_data/image/rootfs/var/log/ipaupgrade.log",
+                    "file": "{CONTAINER_MOUNT_POINT}/var/log/ipaupgrade.log",
+                    "pattern": [
+                        "wait_for_open_ports: localhost"
+                    ]
+                }
+            ],
+            "host": [
+                {
+                    "archive_file_name": "/var/log/ipaupgrade.log",
+                    "file": "/var/log/ipaupgrade.log",
+                    "pattern": [
+                        "wait_for_open_ports: localhost"
+                    ]
                 }
             ]
         },
@@ -2962,21 +3029,33 @@
             "docker_container": [
                 {
                     "archive_file_name": "/insights_data/container/rootfs/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "{CONTAINER_MOUNT_POINT}/etc/krb5\\.conf\\.d/()*.*\\.conf",
+=======
+                    "file": "{CONTAINER_MOUNT_POINT}/etc/krb5.conf.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": []
                 }
             ],
             "docker_image": [
                 {
                     "archive_file_name": "/insights_data/image/rootfs/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "{CONTAINER_MOUNT_POINT}/etc/krb5\\.conf\\.d/()*.*\\.conf",
+=======
+                    "file": "{CONTAINER_MOUNT_POINT}/etc/krb5.conf.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": []
                 }
             ],
             "host": [
                 {
                     "archive_file_name": "/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "/etc/krb5\\.conf\\.d/()*.*\\.conf",
+=======
+                    "file": "/etc/krb5.conf.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": []
                 }
             ]
@@ -3024,21 +3103,33 @@
             "docker_container": [
                 {
                     "archive_file_name": "/insights_data/container/rootfs/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "{CONTAINER_MOUNT_POINT}/etc/security/limits\\.d/()*.*\\.conf",
+=======
+                    "file": "{CONTAINER_MOUNT_POINT}/etc/security/limits.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": []
                 }
             ],
             "docker_image": [
                 {
                     "archive_file_name": "/insights_data/image/rootfs/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "{CONTAINER_MOUNT_POINT}/etc/security/limits\\.d/()*.*\\.conf",
+=======
+                    "file": "{CONTAINER_MOUNT_POINT}/etc/security/limits.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": []
                 }
             ],
             "host": [
                 {
                     "archive_file_name": "/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "/etc/security/limits\\.d/()*.*\\.conf",
+=======
+                    "file": "/etc/security/limits.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": []
                 }
             ]
@@ -4279,6 +4370,16 @@
                 }
             ]
         },
+        "package_provides_java": {
+            "host": [
+                {
+                    "archive_file_name": "/insights_commands/echo_",
+                    "command": "/bin/echo",
+                    "pattern": [],
+                    "pre_command": "java_command_package"
+                }
+            ]
+        },
         "password-auth": {
             "docker_container": [
                 {
@@ -4423,8 +4524,10 @@
                         "COMMAND",
                         "STAP",
                         "STAP/8.2",
+                        "catalina.base",
                         "ceph-osd",
                         "chronyd",
+                        "java",
                         "keystone-all",
                         "ntpd",
                         "phc2sys",
@@ -5643,21 +5746,21 @@
             "docker_container": [
                 {
                     "archive_file_name": "/insights_data/container/rootfs/{EXPANDED_FILE_NAME}",
-                    "file": "{CONTAINER_MOUNT_POINT}/usr/lib/systemd/journald\\.conf\\.d/()*.+\\.conf",
+                    "file": "{CONTAINER_MOUNT_POINT}/usr/lib/systemd/journald.conf.d/()*.+\\.conf",
                     "pattern": []
                 }
             ],
             "docker_image": [
                 {
                     "archive_file_name": "/insights_data/image/rootfs/{EXPANDED_FILE_NAME}",
-                    "file": "{CONTAINER_MOUNT_POINT}/usr/lib/systemd/journald\\.conf\\.d/()*.+\\.conf",
+                    "file": "{CONTAINER_MOUNT_POINT}/usr/lib/systemd/journald.conf.d/()*.+\\.conf",
                     "pattern": []
                 }
             ],
             "host": [
                 {
                     "archive_file_name": "/{EXPANDED_FILE_NAME}",
-                    "file": "/usr/lib/systemd/journald\\.conf\\.d/()*.+\\.conf",
+                    "file": "/usr/lib/systemd/journald.conf.d/()*.+\\.conf",
                     "pattern": []
                 }
             ]
@@ -5805,7 +5908,11 @@
                 },
                 {
                     "archive_file_name": "/insights_data/container/rootfs/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "{CONTAINER_MOUNT_POINT}/etc/virt-who\\.d/()*.*\\.conf",
+=======
+                    "file": "{CONTAINER_MOUNT_POINT}/etc/virt-who.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": [
                         "[",
                         "configs",
@@ -5839,7 +5946,11 @@
                 },
                 {
                     "archive_file_name": "/insights_data/image/rootfs/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "{CONTAINER_MOUNT_POINT}/etc/virt-who\\.d/()*.*\\.conf",
+=======
+                    "file": "{CONTAINER_MOUNT_POINT}/etc/virt-who.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": [
                         "[",
                         "configs",
@@ -5873,7 +5984,11 @@
                 },
                 {
                     "archive_file_name": "/{EXPANDED_FILE_NAME}",
+<<<<<<< Updated upstream
                     "file": "/etc/virt-who\\.d/()*.*\\.conf",
+=======
+                    "file": "/etc/virt-who.d/()*.*\\.conf",
+>>>>>>> Stashed changes
                     "pattern": [
                         "[",
                         "configs",
@@ -6104,5 +6219,9 @@
             ]
         }
     },
+<<<<<<< Updated upstream
     "version": "2017-10-13T09:31:59.262639"
+=======
+    "version": "2017-10-19T08:50:41.261750"
+>>>>>>> Stashed changes
 }
