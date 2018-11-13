@@ -1,6 +1,11 @@
 {
     "commands": [
         {
+            "command": "/usr/sbin/dmidecode -s system-uuid",
+            "pattern": [],
+            "symbolic_name": "bios_uuid"
+        },
+        {
             "command": "/sbin/blkid -c /dev/null",
             "pattern": [],
             "symbolic_name": "blkid"
@@ -128,6 +133,11 @@
             "symbolic_name": "dmidecode"
         },
         {
+            "command": "/usr/sbin/dmidecode -s system-uuid",
+            "pattern": [],
+            "symbolic_name": "bios_uuid"
+        },
+        {
             "command": "/usr/sbin/dmsetup info -C",
             "pattern": [],
             "symbolic_name": "dmsetup_info"
@@ -228,6 +238,11 @@
             "command": "/bin/hostname -f",
             "pattern": [],
             "symbolic_name": "hostname"
+        },
+        {
+            "command": "/bin/hostname -I",
+            "pattern": [],
+            "symbolic_name": "ip_addresses"
         },
         {
             "command": "/usr/sbin/httpd -V",
@@ -725,6 +740,11 @@
             "command": "/usr/bin/scl --list",
             "pattern": [],
             "symbolic_name": "software_collections_list"
+        },
+        {
+            "command": "/usr/bin/subscription-manager identity",
+            "pattern": [],
+            "symbolic_name": "subscription_manager_id"
         },
         {
             "command": "/usr/bin/subscription-manager release --show",
@@ -2346,6 +2366,11 @@
         {
             "glob": "/sys/devices/system/cpu/vulnerabilities/*",
             "symbolic_name": "cpu_vulns",
+            "pattern": []
+        },
+        {
+            "glob": "/sys/class/net/*/address",
+            "symbolic_name": "mac_addresses",
             "pattern": []
         },
         {
